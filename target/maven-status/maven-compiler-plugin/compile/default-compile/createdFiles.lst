@@ -1,2 +1,6 @@
-com\mycompany\ena_javaweb2020\JAXRSConfiguration.class
+clases\Login.class
 com\mycompany\ena_javaweb2020\resources\JavaEE8Resource.class
+modelo\Autentificacion.class
+com\mycompany\ena_javaweb2020\JAXRSConfiguration.class
+Mysql\Conexion.class
+controlador\LoginServlet.class
