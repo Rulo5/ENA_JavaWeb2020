@@ -25,13 +25,13 @@
              
              <div class="row">
                  
-                     <a class="col s8 mb-20 offset-s2 waves-effect waves-light btn-large purple lighten-4"><i class="material-icons left">add</i>Ingresar Requerimiento</a>
+                 <a href="./IngresarRequerimientos.jsp" class="col s8 mb-20 offset-s2 waves-effect waves-light btn-large purple lighten-4"><i class="material-icons left">add</i>Ingresar Requerimiento</a>
                     
              
-                     <a class="col s8 mb-20 offset-s2  waves-effect waves-light btn-large  purple lighten-3"><i class="material-icons left">search</i>Consultar Requerimientos</a>
+                 <a href="./ConsultaRequerimientos.jsp" class="col s8 mb-20 offset-s2  waves-effect waves-light btn-large  purple lighten-3"><i class="material-icons left">search</i>Consultar Requerimientos</a>
                   
                  
-                    <a class="col s8 mb-20 offset-s2 waves-effect waves-light btn-large purple lighten-2"><i class="material-icons left">clear</i>Cerrar Requerimiento</a>
+                 <a href="./CerrarRequerimientos.jsp" class="col s8 mb-20 offset-s2 waves-effect waves-light btn-large purple lighten-2"><i class="material-icons left">clear</i>Cerrar Requerimiento</a>
                
              </div>
 

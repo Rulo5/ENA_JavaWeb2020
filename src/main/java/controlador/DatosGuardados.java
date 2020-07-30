@@ -5,25 +5,22 @@
  */
 package controlador;
 
-import Mysql.Conexion;
-import clases.Login;
+import clases.Requerimiento;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import modelo.Autentificacion;
+import modelo.requerimiento;
 
 /**
  *
  * @author andre
  */
-@WebServlet(name = "login", urlPatterns = {"/login"})
-public class LoginServlet extends HttpServlet {
+@WebServlet(name = "DatosGuardados", urlPatterns = {"/DatosGuardados"})
+public class DatosGuardados extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,21 +33,54 @@ public class LoginServlet extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String usuario;
-        String password;
-        
-        usuario= request.getParameter("usuario");
-        password=request.getParameter("password");
-      
-        Autentificacion login = new Autentificacion(usuario,password);
-        
-        if(login.login()){
-            response.sendRedirect(request.getContextPath() + "/MenuPrincipal.jsp");
+
+        String geren;
+        String depa;
+        String asig;
+        String encar;
+        String come;
+
+        geren = request.getParameter("gerente");
+        depa = request.getParameter("dpto");
+        asig = request.getParameter("asignar");
+        encar = request.getParameter("encargado");
+        come = request.getParameter("comentario");
+
+        Requerimiento requerimiento = new Requerimiento(geren, depa, asig, encar, come);
+
+        requerimiento req = new requerimiento();
+        if (req.guardarRequerimiento(requerimiento)) {
+            response.setContentType("text/html;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Guardar los datos</title>");
+                out.println("<meta http-equiv=\"refresh\" content=\"1; url=./IngresarRequerimientos.jsp\">");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>Los datos han sido guardados</h1>");
+                out.println("</body>");
+                out.println("</html>");
+            }
         }else{
-            response.sendRedirect(request.getContextPath() + "/usuario.jsp");
+         response.setContentType("text/html;charset=UTF-8");
+            try (PrintWriter out = response.getWriter()) {
+
+                out.println("<!DOCTYPE html>");
+                out.println("<html>");
+                out.println("<head>");
+                out.println("<title>Guardar los datos</title>");
+                out.println("<meta http-equiv=\"refresh\" content=\"1; url=./IngresarRequerimientos.jsp\">");
+                out.println("</head>");
+                out.println("<body>");
+                out.println("<h1>No se lograron almacenar los datos</h1>");
+                out.println("</body>");
+                out.println("</html>");
+            }
         }
-            
-        
+
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
@@ -92,5 +122,4 @@ public class LoginServlet extends HttpServlet {
         return "Short description";
     }// </editor-fold>
 
-    
 }

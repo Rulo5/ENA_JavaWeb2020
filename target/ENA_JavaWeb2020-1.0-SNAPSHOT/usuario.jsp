@@ -25,12 +25,12 @@
                     <div class="row">
                         <div class="input-field col s6">
                             <i class="material-icons prefix"> insert_emoticon</i>
-                            <input id="icon_prefix" type="text" class="validate" name="usuario">
+                            <input id="icon_prefix" type="number" placeholder="Ej: 111111111" class="validate" name="usuario" required="true">
                             <label for="icon_prefix">Usuario</label>
                         </div>
                         <div class="input-field col s6">
                             <i class="material-icons prefix">fingerprint</i>
-                            <input id="icon_telephone" type="tel" class="validate" name="password">
+                            <input id="icon_telephone" type="number" class="validate" placeholder="Ej: 11111" name="password" maxlength="" required="true">
                             <label for="icon_telephone">Password</label>
                         </div>
                         <label class="input-field col s6 offset-s3 center-align">
